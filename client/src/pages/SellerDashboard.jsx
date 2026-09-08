@@ -53,7 +53,10 @@ export default function SellerDashboard({ onNavigate }) {
         setOrders(data.orders || []);
       }
     } catch (e) {
-      console.error('Failed to load orders', e);
+      try {
+        const local = JSON.parse(localStorage.getItem('ecocart_orders') || '[]');
+        setOrders(local);
+      } catch (err) {}
     }
   };
 

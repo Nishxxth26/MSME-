@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Mount Routes
+// API Routes
 app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRouter);
 app.use('/api/orders', ordersRouter);
@@ -35,9 +35,25 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// 404 Handler
+// Serve frontend static build in production (e.g. on Render)
+const clientDistPath = path.join(__dirname, '../client/dist');
+app.use(express.static(clientDistPath));
+
+// SPA catch-all route (serves index.html for non-API client routes)
+app.get('*', (req, res, next) => {
+  if (req.originalUrl.startsWith('/api')) {
+    return next();
+  }
+  res.sendFile(path.join(clientDistPath, 'index.html'), (err) => {
+    if (err) {
+      next();
+    }
+  });
+});
+
+// 404 Handler for undefined API routes
 app.use((req, res, next) => {
-  res.status(404).json({ success: false, message: 'Endpoint not found' });
+  res.status(404).json({ success: false, message: 'API endpoint not found' });
 });
 
 // Error handling middleware
@@ -51,5 +67,5 @@ app.use((err, req, res, next) => {
 
 // Start Server
 app.listen(PORT, () => {
-  console.log(`EcoCart MSME Server running on http://localhost:${PORT}`);
+  console.log(`EcoCart MSME Server running on port ${PORT}`);
 });

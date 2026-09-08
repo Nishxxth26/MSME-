@@ -31,7 +31,12 @@ export default function ImpactDashboard({ onNavigate, onSelectProduct }) {
           setUserOrders(data.orders || []);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        try {
+          const local = JSON.parse(localStorage.getItem('ecocart_orders') || '[]');
+          setUserOrders(local);
+        } catch (e) {}
+      });
   }, []);
 
   const wishlistedProducts = products.filter(p => wishlist.includes(p.id));

@@ -1,11 +1,16 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { DEFAULT_PRODUCTS, DEFAULT_CATEGORIES } from '../data/defaultProducts';
 
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState(() => {
+    const saved = localStorage.getItem('ecocart_catalog_products');
+    return saved ? JSON.parse(saved) : DEFAULT_PRODUCTS;
+  });
+
+  const [categories, setCategories] = useState(DEFAULT_CATEGORIES);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // Filter & Search states
@@ -58,20 +63,58 @@ export const ProductProvider = ({ children }) => {
         setCategories(data.categories);
       }
     } catch (err) {
-      console.warn('API fetch categories failed, using fallback categories', err);
-      setCategories([
-        { id: 'all', name: 'All Products', icon: 'Sparkles' },
-        { id: 'home-living', name: 'Home & Living', icon: 'Home' },
-        { id: 'personal-care', name: 'Personal Care', icon: 'Smile' },
-        { id: 'kitchen-dining', name: 'Kitchen & Dining', icon: 'Coffee' },
-        { id: 'fashion-accessories', name: 'Fashion & Accessories', icon: 'ShoppingBag' },
-        { id: 'zero-waste', name: 'Zero Waste Stationery', icon: 'Leaf' },
-        { id: 'organic-foods', name: 'Organic Pantry', icon: 'Apple' }
-      ]);
+      setCategories(DEFAULT_CATEGORIES);
     }
   }, []);
 
-  // Fetch products
+  // Filter fallback products locally
+  const filterLocalProducts = useCallback(() => {
+    const saved = localStorage.getItem('ecocart_catalog_products');
+    let source = saved ? JSON.parse(saved) : DEFAULT_PRODUCTS;
+    let filtered = [...source];
+
+    if (selectedCategory && selectedCategory !== 'all') {
+      filtered = filtered.filter(p => p.category.toLowerCase() === selectedCategory.toLowerCase());
+    }
+
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase().trim();
+      filtered = filtered.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        (p.artisan && p.artisan.name.toLowerCase().includes(q)) ||
+        (p.artisan && p.artisan.location.toLowerCase().includes(q))
+      );
+    }
+
+    if (selectedEcoScore && selectedEcoScore !== 'all') {
+      filtered = filtered.filter(p => p.ecoScore === selectedEcoScore);
+    }
+
+    if (selectedMsmeType && selectedMsmeType !== 'all') {
+      filtered = filtered.filter(p =>
+        p.artisan && p.artisan.msmeType.toLowerCase().includes(selectedMsmeType.toLowerCase())
+      );
+    }
+
+    if (priceRange[1] < 100) {
+      filtered = filtered.filter(p => p.price <= priceRange[1]);
+    }
+
+    if (sortBy === 'price-asc') {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'price-desc') {
+      filtered.sort((a, b) => b.price - a.price);
+    } else if (sortBy === 'eco') {
+      filtered.sort((a, b) => (b.carbonSavedKg || 0) - (a.carbonSavedKg || 0));
+    } else if (sortBy === 'rating') {
+      filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    }
+
+    setProducts(filtered);
+  }, [selectedCategory, searchQuery, selectedEcoScore, selectedMsmeType, priceRange, sortBy]);
+
+  // Fetch products from API or fallback locally
   const fetchProducts = useCallback(async () => {
     setLoading(true);
     try {
@@ -88,14 +131,14 @@ export const ProductProvider = ({ children }) => {
         const data = await res.json();
         setProducts(data.products);
       } else {
-        throw new Error('Failed to load products');
+        filterLocalProducts();
       }
     } catch (err) {
-      console.warn('API products fetch failed:', err);
+      filterLocalProducts();
     } finally {
       setLoading(false);
     }
-  }, [selectedCategory, searchQuery, selectedEcoScore, selectedMsmeType, priceRange, sortBy]);
+  }, [selectedCategory, searchQuery, selectedEcoScore, selectedMsmeType, priceRange, sortBy, filterLocalProducts]);
 
   useEffect(() => {
     fetchCategories();
@@ -118,14 +161,23 @@ export const ProductProvider = ({ children }) => {
         setProducts(prev => [data.product, ...prev]);
         showToast('New eco-product listed successfully!', 'success');
         return { success: true, product: data.product };
-      } else {
-        const err = await res.json();
-        showToast(err.message || 'Error listing product', 'error');
-        return { success: false, message: err.message };
       }
     } catch (err) {
-      showToast('Network error while adding product', 'error');
-      return { success: false, message: err.message };
+      // Offline fallback: save locally
+      const newProd = {
+        ...productData,
+        id: 'prod-' + Date.now(),
+        rating: 5.0,
+        reviewsCount: 1,
+        images: productData.images || ['https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80']
+      };
+      setProducts(prev => {
+        const updated = [newProd, ...prev];
+        localStorage.setItem('ecocart_catalog_products', JSON.stringify(updated));
+        return updated;
+      });
+      showToast('New eco-product listed successfully!', 'success');
+      return { success: true, product: newProd };
     }
   };
 
@@ -144,8 +196,13 @@ export const ProductProvider = ({ children }) => {
         return { success: true };
       }
     } catch (err) {
-      showToast('Failed to update product', 'error');
-      return { success: false };
+      setProducts(prev => {
+        const updated = prev.map(p => p.id === id ? { ...p, ...updatedData } : p);
+        localStorage.setItem('ecocart_catalog_products', JSON.stringify(updated));
+        return updated;
+      });
+      showToast('Product updated successfully!', 'success');
+      return { success: true };
     }
   };
 
@@ -159,8 +216,13 @@ export const ProductProvider = ({ children }) => {
         return { success: true };
       }
     } catch (err) {
-      showToast('Failed to delete product', 'error');
-      return { success: false };
+      setProducts(prev => {
+        const updated = prev.filter(p => p.id !== id);
+        localStorage.setItem('ecocart_catalog_products', JSON.stringify(updated));
+        return updated;
+      });
+      showToast('Product removed from catalog', 'info');
+      return { success: true };
     }
   };
 
