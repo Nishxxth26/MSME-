@@ -136,7 +136,7 @@ export default function CartPage({ onNavigate, onCheckout }) {
             <TreePine className="w-4 h-4 text-eco-700" />
             {amountNeededForFreeShipping > 0 ? (
               <span>
-                Add <strong>${amountNeededForFreeShipping.toFixed(2)}</strong> more for Free Carbon-Neutral Delivery & 1 Native Tree Planted!
+                Add <strong>₹{amountNeededForFreeShipping.toFixed(0)}</strong> more for Free Carbon-Neutral Delivery & 1 Native Tree Planted!
               </span>
             ) : (
               <span className="text-emerald-800 font-bold flex items-center gap-1">
@@ -172,7 +172,7 @@ export default function CartPage({ onNavigate, onCheckout }) {
                     <span className="text-[11px] font-semibold text-eco-700">By {item.artisan}</span>
                     <h3 className="font-bold text-sm text-slate-800 line-clamp-1">{item.name}</h3>
                     <div className="flex items-center gap-3 text-xs text-slate-500 mt-1">
-                      <span className="font-mono">${item.price.toFixed(2)} each</span>
+                      <span className="font-mono">₹{item.price.toLocaleString('en-IN')} each</span>
                       <span>•</span>
                       <span className="text-eco-700 font-medium text-[11px]">
                         🌿 -{(item.carbonSavedKg * item.quantity).toFixed(1)} kg CO₂
@@ -201,7 +201,7 @@ export default function CartPage({ onNavigate, onCheckout }) {
 
                   {/* Subtotal */}
                   <span className="text-sm font-black font-display text-slate-900 min-w-[70px] text-right">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                   </span>
 
                   {/* Trash */}
@@ -233,7 +233,7 @@ export default function CartPage({ onNavigate, onCheckout }) {
               >
                 <div className="flex justify-between items-center font-bold">
                   <span>Plant-Starch Compostable Box</span>
-                  <span className="font-mono text-eco-800">+$1.50</span>
+                  <span className="font-mono text-eco-800">+₹49</span>
                 </div>
                 <p className="text-[11px] text-slate-500 mt-1">
                   100% home compostable starch box cushioned with shredded natural jute fibers.
@@ -269,24 +269,24 @@ export default function CartPage({ onNavigate, onCheckout }) {
                 </h4>
               </div>
               <span className="text-xs font-semibold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
-                Available: {user.ecoPoints} points
+                Available: {user.ecoPoints} points (Worth ₹{((user.ecoPoints || 0) * 0.50).toFixed(0)})
               </span>
             </div>
             <p className="text-xs text-slate-500">
-              Redeem points earned from past sustainable orders. 20 EcoPoints = $1.00 off!
+              Redeem points earned from past sustainable orders or waste recycling. 100 EcoPoints = ₹50 off!
             </p>
             <div className="flex items-center gap-4 pt-1">
               <input
                 type="range"
                 min="0"
-                max={Math.min(user.ecoPoints, Math.floor(subtotal / 0.05))}
+                max={Math.min(user.ecoPoints, Math.floor(subtotal / 0.50))}
                 step="20"
                 value={pointsToRedeem}
                 onChange={(e) => setPointsToRedeem(parseInt(e.target.value, 10))}
                 className="flex-1 accent-amber-500 h-2 bg-slate-100 rounded-lg cursor-pointer"
               />
               <span className="text-xs font-bold font-mono text-amber-700 bg-amber-100 px-3 py-1 rounded-lg">
-                {pointsToRedeem} pts (-${(pointsToRedeem * 0.05).toFixed(2)})
+                {pointsToRedeem} pts (-₹{(pointsToRedeem * 0.50).toFixed(0)})
               </span>
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function CartPage({ onNavigate, onCheckout }) {
                 <div className="flex gap-2">
                   <input
                     type="text"
-                    placeholder="ECO10, EARTHDAY"
+                    placeholder="ECO10, SWACHH15, MSMEFIRST"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
                     className="flex-1 text-xs p-2.5 uppercase font-mono border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-eco-500"
@@ -344,30 +344,30 @@ export default function CartPage({ onNavigate, onCheckout }) {
             <div className="space-y-2.5 text-xs text-slate-600 pt-2 border-t border-slate-100">
               <div className="flex justify-between">
                 <span>Items Subtotal</span>
-                <span className="font-mono font-semibold text-slate-800">${subtotal.toFixed(2)}</span>
+                <span className="font-mono font-semibold text-slate-800">₹{subtotal.toLocaleString('en-IN')}</span>
               </div>
               {couponDiscount > 0 && (
                 <div className="flex justify-between text-emerald-700 font-medium">
                   <span>Coupon Discount ({appliedCoupon?.code})</span>
-                  <span className="font-mono">-${couponDiscount.toFixed(2)}</span>
+                  <span className="font-mono">-₹{couponDiscount.toLocaleString('en-IN')}</span>
                 </div>
               )}
               {pointsDiscount > 0 && (
                 <div className="flex justify-between text-amber-700 font-medium">
                   <span>EcoPoints ({pointsToRedeem} pts)</span>
-                  <span className="font-mono">-${pointsDiscount.toFixed(2)}</span>
+                  <span className="font-mono">-₹{pointsDiscount.toLocaleString('en-IN')}</span>
                 </div>
               )}
               {packagingFee > 0 && (
                 <div className="flex justify-between">
                   <span>Compostable Packaging</span>
-                  <span className="font-mono">${packagingFee.toFixed(2)}</span>
+                  <span className="font-mono">₹{packagingFee.toLocaleString('en-IN')}</span>
                 </div>
               )}
               <div className="flex justify-between">
                 <span>Carbon-Neutral Shipping</span>
                 <span className="font-mono">
-                  {shippingFee === 0 ? <strong className="text-emerald-700">FREE</strong> : `$${shippingFee.toFixed(2)}`}
+                  {shippingFee === 0 ? <strong className="text-emerald-700">FREE</strong> : `₹${shippingFee.toLocaleString('en-IN')}`}
                 </span>
               </div>
 
@@ -375,7 +375,7 @@ export default function CartPage({ onNavigate, onCheckout }) {
               <div className="pt-3 border-t border-slate-200 flex justify-between items-baseline text-slate-900">
                 <span className="font-bold text-sm">Estimated Total</span>
                 <span className="text-xl font-black font-mono text-eco-800">
-                  ${total.toFixed(2)}
+                  ₹{total.toLocaleString('en-IN')}
                 </span>
               </div>
             </div>

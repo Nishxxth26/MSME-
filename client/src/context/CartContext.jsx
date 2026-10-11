@@ -107,21 +107,21 @@ export const CartProvider = ({ children }) => {
     couponDiscount = (subtotal * (appliedCoupon.discountPercent / 100));
   }
 
-  // EcoPoints discount: $1 off per 20 points
-  const pointsDiscount = Math.min(pointsToRedeem * 0.05, Math.max(0, subtotal - couponDiscount));
+  // EcoPoints discount: ₹50 off per 100 points (₹0.50 per point)
+  const pointsDiscount = Math.min(pointsToRedeem * 0.50, Math.max(0, subtotal - couponDiscount));
 
   const totalDiscount = couponDiscount + pointsDiscount;
 
-  // Packaging fee
-  const packagingFee = packaging === 'biodegradable' ? 1.50 : 0.00;
+  // Packaging fee: ₹49 for Biodegradable Box, ₹0 for Zero-Waste
+  const packagingFee = packaging === 'biodegradable' ? 49 : 0;
 
-  // Free shipping threshold = $40
-  const freeShippingThreshold = 40;
-  const shippingFee = subtotal >= freeShippingThreshold || subtotal === 0 ? 0.00 : 4.99;
+  // Free shipping threshold = ₹999
+  const freeShippingThreshold = 999;
+  const shippingFee = subtotal >= freeShippingThreshold || subtotal === 0 ? 0 : 60;
 
   const total = Math.max(0, subtotal - totalDiscount + packagingFee + (subtotal > 0 ? shippingFee : 0));
 
-  const treesFunded = subtotal > 0 ? Math.max(1, Math.floor(total / 35)) : 0;
+  const treesFunded = subtotal > 0 ? Math.max(1, Math.floor(total / 800)) : 0;
 
   // Progress to free shipping & tree incentive
   const progressToFreeShipping = Math.min(100, Math.round((subtotal / freeShippingThreshold) * 100));

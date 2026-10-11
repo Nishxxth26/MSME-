@@ -121,7 +121,7 @@ export default function ImpactDashboard({ onNavigate, onSelectProduct }) {
             {user.ecoPoints} Pts
           </div>
           <p className="text-xs font-bold text-slate-700 uppercase tracking-wider">Green Wallet Balance</p>
-          <p className="text-[11px] text-slate-400">Redeemable for ${(user.ecoPoints * 0.05).toFixed(2)} checkout savings</p>
+          <p className="text-[11px] text-slate-400">Redeemable for ₹{((user.ecoPoints || 0) * 0.50).toFixed(0)} checkout savings</p>
         </div>
       </div>
 
@@ -180,7 +180,7 @@ export default function ImpactDashboard({ onNavigate, onSelectProduct }) {
                 <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600">
                   <span>{ord.items?.length} items</span>
                   <span>•</span>
-                  <span>Total: <strong className="text-slate-900">${ord.pricing?.total.toFixed(2)}</strong></span>
+                  <span>Total: <strong className="text-slate-900">₹{ord.pricing?.total?.toLocaleString('en-IN') || ord.pricing?.total}</strong></span>
                   <span>•</span>
                   <span className="text-eco-800 font-medium">🌿 -{ord.ecoImpact?.totalCarbonSavedKg} kg CO₂</span>
                   <span>•</span>

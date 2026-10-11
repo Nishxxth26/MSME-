@@ -1,51 +1,23 @@
 {
   "categories": [
-    {
-      "id": "all",
-      "name": "All Products",
-      "icon": "Sparkles"
-    },
-    {
-      "id": "home-living",
-      "name": "Home & Living",
-      "icon": "Home"
-    },
-    {
-      "id": "personal-care",
-      "name": "Personal Care",
-      "icon": "Smile"
-    },
-    {
-      "id": "kitchen-dining",
-      "name": "Kitchen & Dining",
-      "icon": "Coffee"
-    },
-    {
-      "id": "fashion-accessories",
-      "name": "Fashion & Accessories",
-      "icon": "ShoppingBag"
-    },
-    {
-      "id": "zero-waste",
-      "name": "Zero Waste Stationery",
-      "icon": "Leaf"
-    },
-    {
-      "id": "organic-foods",
-      "name": "Organic Pantry",
-      "icon": "Apple"
-    }
+    { "id": "all", "name": "All Products", "icon": "Sparkles" },
+    { "id": "home-living", "name": "Home & Living", "icon": "Home" },
+    { "id": "personal-care", "name": "Personal Care", "icon": "Smile" },
+    { "id": "kitchen-dining", "name": "Kitchen & Dining", "icon": "Coffee" },
+    { "id": "fashion-accessories", "name": "Fashion & Accessories", "icon": "ShoppingBag" },
+    { "id": "zero-waste", "name": "Zero Waste Stationery", "icon": "Leaf" },
+    { "id": "organic-foods", "name": "Organic Pantry", "icon": "Apple" }
   ],
   "products": [
     {
       "id": "prod-1",
       "name": "Hand-Carved Coconut Shell Candle (Lavender & Cedar)",
       "category": "home-living",
-      "price": 18.5,
-      "originalPrice": 24,
+      "price": 399,
+      "originalPrice": 499,
       "rating": 4.9,
       "reviewsCount": 42,
-      "stock": 34,
+      "stock": 35,
       "ecoScore": "A+",
       "carbonSavedKg": 3.2,
       "plasticAvoided": 4,
@@ -54,12 +26,7 @@
         "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b8?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Reclaimed Coconut Shell",
-        "Pure Soy Wax",
-        "Organic Lavender Essential Oil",
-        "Wood Wick"
-      ],
+      "materials": ["Reclaimed Coconut Shell", "Pure Soy Wax", "Organic Lavender Essential Oil", "Wood Wick"],
       "description": "Each candle is hand-poured into discarded coconut shells sourced from local coastal farm cooperatives. 100% soot-free natural soy wax infused with wild lavender and cedarwood oils, featuring a crackling organic wood wick.",
       "artisan": {
         "id": "art-1",
@@ -71,18 +38,14 @@
         "verifiedMsme": true,
         "story": "Meera employs 14 women from fishing villages, transforming agricultural coconut waste into sustainable luxury aromatherapy essentials."
       },
-      "certifications": [
-        "Cruelty-Free",
-        "Zero Waste Certified",
-        "Fair Trade"
-      ]
+      "certifications": ["Cruelty-Free", "Zero Waste Certified", "Fair Trade"]
     },
     {
       "id": "prod-2",
       "name": "Organic Bamboo Charcoal Dental Kit (4-Pack)",
       "category": "personal-care",
-      "price": 14,
-      "originalPrice": 18,
+      "price": 249,
+      "originalPrice": 349,
       "rating": 4.8,
       "reviewsCount": 78,
       "stock": 50,
@@ -94,11 +57,7 @@
         "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1593005510329-8a4035a7238f?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Moso Bamboo Handle",
-        "Activated Bamboo Charcoal Bristles",
-        "Compostable Kraft Box"
-      ],
+      "materials": ["Moso Bamboo Handle", "Activated Bamboo Charcoal Bristles", "Compostable Kraft Box"],
       "description": "Ergonomically carved from fast-growing, pesticide-free wild bamboo with naturally antibacterial activated charcoal bristles. Fully biodegradable handles can be composted in your garden.",
       "artisan": {
         "id": "art-2",
@@ -110,18 +69,14 @@
         "verifiedMsme": true,
         "story": "Started by a generational bamboo carving family, EarthRoot crafts everyday zero-waste hygiene items to replace single-use plastic."
       },
-      "certifications": [
-        "FSC Certified Bamboo",
-        "100% Biodegradable",
-        "Plastic-Free Packaging"
-      ]
+      "certifications": ["FSC Certified Bamboo", "100% Biodegradable", "Plastic-Free Packaging"]
     },
     {
       "id": "prod-3",
       "name": "Hand-Hammered Pure Ayurvedic Copper Water Bottle (950ml)",
       "category": "kitchen-dining",
-      "price": 32,
-      "originalPrice": 42,
+      "price": 899,
+      "originalPrice": 1199,
       "rating": 4.95,
       "reviewsCount": 61,
       "stock": 20,
@@ -133,11 +88,7 @@
         "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "99.8% Pure Grade Copper",
-        "Food-Grade Silicone Seal",
-        "Lacquered Exterior"
-      ],
+      "materials": ["99.8% Pure Grade Copper", "Food-Grade Silicone Seal", "Lacquered Exterior"],
       "description": "Hand-hammered by master brassmiths using ancient Ayurvedic metalsmithing techniques. Natural oligodynamic copper helps naturally purify water, boosts immunity, and eliminates thousands of disposable plastic bottles.",
       "artisan": {
         "id": "art-3",
@@ -149,18 +100,14 @@
         "verifiedMsme": true,
         "story": "Preserving 400-year-old brass and copper craft traditions, supporting 32 generational metal artisan families."
       },
-      "certifications": [
-        "100% Recyclable Metal",
-        "Ayurvedic Heritage",
-        "Lifelong Durability"
-      ]
+      "certifications": ["100% Recyclable Metal", "Ayurvedic Heritage", "Lifelong Durability"]
     },
     {
       "id": "prod-4",
       "name": "Upcycled Raw Denim & Jute Everyday Laptop Sleeve (15-inch)",
       "category": "fashion-accessories",
-      "price": 26.5,
-      "originalPrice": 35,
+      "price": 749,
+      "originalPrice": 999,
       "rating": 4.7,
       "reviewsCount": 39,
       "stock": 28,
@@ -172,12 +119,7 @@
         "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Discarded Denim Factory Off-cuts",
-        "Natural Golden Jute",
-        "Organic Cotton Padding",
-        "Coconut Shell Button"
-      ],
+      "materials": ["Discarded Denim Factory Off-cuts", "Natural Golden Jute", "Organic Cotton Padding", "Coconut Shell Button"],
       "description": "Rescues heavy-duty denim remnants from industrial textile discard. Lined with natural shock-absorbent golden jute and organic cotton fleece to protect your laptop with timeless eco-street style.",
       "artisan": {
         "id": "art-4",
@@ -189,18 +131,14 @@
         "verifiedMsme": true,
         "story": "Sneha's micro-enterprise diverts over 4 metric tons of textile waste from landfills every year while providing dignified livelihood to women tailors."
       },
-      "certifications": [
-        "Upcycled Certified",
-        "Vegan",
-        "Zero Landfill"
-      ]
+      "certifications": ["Upcycled Certified", "Vegan", "Zero Landfill"]
     },
     {
       "id": "prod-5",
       "name": "Seed Paper Botanical Journal & Plantable Seed Pen",
       "category": "zero-waste",
-      "price": 16,
-      "originalPrice": 22,
+      "price": 349,
+      "originalPrice": 449,
       "rating": 4.9,
       "reviewsCount": 85,
       "stock": 60,
@@ -212,11 +150,7 @@
         "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Recycled Cotton Scrap Paper",
-        "Wildflower & Basil Seeds",
-        "Recycled Paper Pen Body"
-      ],
+      "materials": ["Recycled Cotton Scrap Paper", "Wildflower & Basil Seeds", "Recycled Paper Pen Body"],
       "description": "Handmade paper crafted from cotton fabric rags embedded with marigold and basil seeds. When you finish journaling, plant the cover and pen capsule in moist soil to grow vibrant flowers and fresh herbs!",
       "artisan": {
         "id": "art-5",
@@ -228,18 +162,14 @@
         "verifiedMsme": true,
         "story": "Combining centuries-old Sanganeri papermaking with modern permaculture seeds to replace wood-pulp notebooks."
       },
-      "certifications": [
-        "Tree-Free Paper",
-        "Non-GMO Seeds",
-        "100% Compostable"
-      ]
+      "certifications": ["Tree-Free Paper", "Non-GMO Seeds", "100% Compostable"]
     },
     {
       "id": "prod-6",
       "name": "Terracotta Earthen Cooking Handi with Lid (2.5L)",
       "category": "kitchen-dining",
-      "price": 28,
-      "originalPrice": 36,
+      "price": 599,
+      "originalPrice": 799,
       "rating": 4.85,
       "reviewsCount": 54,
       "stock": 15,
@@ -251,11 +181,7 @@
         "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Deep-Bed River Clay",
-        "Natural Mica Mineral Finish",
-        "Lead-Free & Cadmium-Free"
-      ],
+      "materials": ["Deep-Bed River Clay", "Natural Mica Mineral Finish", "Lead-Free & Cadmium-Free"],
       "description": "Throw-turned on traditional potters' wheels and sun-baked before firing. Porous terracotta circulates steam evenly, locking in food nutrients and enhancing aroma naturally without non-stick synthetic chemicals.",
       "artisan": {
         "id": "art-6",
@@ -267,18 +193,14 @@
         "verifiedMsme": true,
         "story": "Sanjoy leads a cluster of 22 traditional potter families preserving ancient unglazed clay cookware techniques."
       },
-      "certifications": [
-        "100% Non-Toxic",
-        "Chemical-Free",
-        "Bio-Neutral"
-      ]
+      "certifications": ["100% Non-Toxic", "Chemical-Free", "Bio-Neutral"]
     },
     {
       "id": "prod-7",
       "name": "Cold-Pressed Organic Virgin Coconut & Vetiver Body Oil (200ml)",
       "category": "personal-care",
-      "price": 19.5,
-      "originalPrice": 25,
+      "price": 449,
+      "originalPrice": 599,
       "rating": 4.9,
       "reviewsCount": 47,
       "stock": 40,
@@ -290,12 +212,7 @@
         "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Centrifuged Virgin Coconut Oil",
-        "Wild Vetiver Root Extract",
-        "Dark Amber Glass Bottle",
-        "Aluminum Cap"
-      ],
+      "materials": ["Centrifuged Virgin Coconut Oil", "Wild Vetiver Root Extract", "Dark Amber Glass Bottle", "Aluminum Cap"],
       "description": "Cold-extracted within 4 hours of harvesting fresh coconuts from organic permaculture farms. Infused with cooling wild vetiver root for deep hydration, packed in infinitely recyclable amber glass.",
       "artisan": {
         "id": "art-7",
@@ -307,18 +224,14 @@
         "verifiedMsme": true,
         "story": "Formed by 65 organic smallholder farmers committed to regenerative agroforestry and chemical-free processing."
       },
-      "certifications": [
-        "USDA Organic",
-        "Cruelty-Free",
-        "Zero Microplastics"
-      ]
+      "certifications": ["USDA Organic", "Cruelty-Free", "Zero Microplastics"]
     },
     {
       "id": "prod-8",
       "name": "Handloom Organic Khadi Cotton Market Tote & Produce Pouches",
       "category": "fashion-accessories",
-      "price": 21,
-      "originalPrice": 28,
+      "price": 499,
+      "originalPrice": 699,
       "rating": 4.75,
       "reviewsCount": 33,
       "stock": 45,
@@ -330,11 +243,7 @@
         "https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "GOTS Certified Organic Cotton",
-        "Natural Indigo Dye",
-        "Heavy-Duty Reinforced Handles"
-      ],
+      "materials": ["GOTS Certified Organic Cotton", "Natural Indigo Dye", "Heavy-Duty Reinforced Handles"],
       "description": "Hand-spun and hand-woven on wooden charkhas by artisan weavers. Includes a roomy gusseted market tote and 3 breathable mesh produce pouches to completely eliminate supermarket produce bags.",
       "artisan": {
         "id": "art-8",
@@ -346,18 +255,14 @@
         "verifiedMsme": true,
         "story": "Empowering 40 handloom artisan families with fair living wages and preserving traditional Indian hand-spinning heritage."
       },
-      "certifications": [
-        "GOTS Organic",
-        "Fair Trade Certified",
-        "Zero Synthetic Dyes"
-      ]
+      "certifications": ["GOTS Organic", "Fair Trade Certified", "Zero Synthetic Dyes"]
     },
     {
       "id": "prod-9",
       "name": "Raw Wild Forest Honey with Crushed Cinnamon & Star Anise (500g)",
       "category": "organic-foods",
-      "price": 22,
-      "originalPrice": 27,
+      "price": 549,
+      "originalPrice": 699,
       "rating": 4.95,
       "reviewsCount": 92,
       "stock": 30,
@@ -369,12 +274,7 @@
         "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "100% Unprocessed Wild Honey",
-        "Organic Ceylon Cinnamon",
-        "Wild Star Anise",
-        "Glass Mason Jar"
-      ],
+      "materials": ["100% Unprocessed Wild Honey", "Organic Ceylon Cinnamon", "Wild Star Anise", "Glass Mason Jar"],
       "description": "Ethically gathered by indigenous tribal honey foragers using non-destructive traditional methods that keep bee colonies unharmed. Raw, unheated, unfiltered, and infused with freshly ground mountain spices.",
       "artisan": {
         "id": "art-9",
@@ -386,18 +286,14 @@
         "verifiedMsme": true,
         "story": "Directly supports 80 tribal honey hunters and preserves the delicate bio-reserve canopy of the Western Ghats."
       },
-      "certifications": [
-        "Wild Harvest Certified",
-        "Raw & Unfiltered",
-        "Cruelty-Free Harvesting"
-      ]
+      "certifications": ["Wild Harvest Certified", "Raw & Unfiltered", "Cruelty-Free Harvesting"]
     },
     {
       "id": "prod-10",
       "name": "Natural Neem Wood Dual-Tooth Comb & Hair Care Trio",
       "category": "personal-care",
-      "price": 12.5,
-      "originalPrice": 16,
+      "price": 199,
+      "originalPrice": 299,
       "rating": 4.8,
       "reviewsCount": 51,
       "stock": 55,
@@ -409,10 +305,7 @@
         "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Sustainably Harvested Indian Neem Wood",
-        "Organic Flaxseed Polish"
-      ],
+      "materials": ["Sustainably Harvested Indian Neem Wood", "Organic Flaxseed Polish"],
       "description": "Hand-carved from seasoned Indian Lilac (Neem) wood with rounded tips that stimulate scalp circulation. Naturally anti-fungal and static-free, preventing hair breakage without plastic bristles.",
       "artisan": {
         "id": "art-2",
@@ -424,18 +317,14 @@
         "verifiedMsme": true,
         "story": "Preserving herbal woodwork traditions using naturally fallen neem branches."
       },
-      "certifications": [
-        "100% Biodegradable",
-        "Zero Chemical Polish",
-        "Antistatic"
-      ]
+      "certifications": ["100% Biodegradable", "Zero Chemical Polish", "Antistatic"]
     },
     {
       "id": "prod-11",
       "name": "Biodegradable Areca Palm Leaf Dinnerware Set (25 Pieces)",
       "category": "kitchen-dining",
-      "price": 24,
-      "originalPrice": 30,
+      "price": 399,
+      "originalPrice": 549,
       "rating": 4.7,
       "reviewsCount": 29,
       "stock": 40,
@@ -447,11 +336,7 @@
         "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Naturally Fallen Areca Nut Palm Sheaths",
-        "Spring Water Washed",
-        "Heat Pressed"
-      ],
+      "materials": ["Naturally Fallen Areca Nut Palm Sheaths", "Spring Water Washed", "Heat Pressed"],
       "description": "Zero trees are cut! Made exclusively from shed palm sheaths that are thoroughly washed with fresh spring water and steam-pressed into sturdy, elegant, microwave-safe tableware that composts naturally in 60 days.",
       "artisan": {
         "id": "art-10",
@@ -463,18 +348,14 @@
         "verifiedMsme": true,
         "story": "Kavitha turns dry fallen plantation leaves into compostable tableware, providing seasonal work to over 50 plantation helpers."
       },
-      "certifications": [
-        "Commercial & Home Compostable",
-        "Microwave Safe",
-        "USDA Biobased"
-      ]
+      "certifications": ["Commercial & Home Compostable", "Microwave Safe", "USDA Biobased"]
     },
     {
       "id": "prod-12",
       "name": "Handmade Cold-Process Herbal Soap Trio (Neem, Rose, Sandal)",
       "category": "personal-care",
-      "price": 15,
-      "originalPrice": 20,
+      "price": 299,
+      "originalPrice": 399,
       "rating": 4.9,
       "reviewsCount": 64,
       "stock": 45,
@@ -486,12 +367,7 @@
         "https://images.unsplash.com/photo-1607006311820-d158737e3d5e?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80"
       ],
-      "materials": [
-        "Cold-Pressed Coconut Oil",
-        "Shea Butter",
-        "Damask Rose Distillate",
-        "Red Sandalwood Extract"
-      ],
+      "materials": ["Cold-Pressed Coconut Oil", "Shea Butter", "Damask Rose Distillate", "Red Sandalwood Extract"],
       "description": "Cured for 6 weeks in small artisanal batches. Free from palm oil, parabens, SLS, and synthetic perfumes. Wrapped in plantable seed paper wrappers.",
       "artisan": {
         "id": "art-1",
@@ -503,85 +379,18 @@
         "verifiedMsme": true,
         "story": "Using traditional Ayurvedic soapcrafting passed down across four generations."
       },
-      "certifications": [
-        "Palm Oil-Free",
-        "Zero SLS/Parabens",
-        "Seed Paper Wrap"
-      ]
+      "certifications": ["Palm Oil-Free", "Zero SLS/Parabens", "Seed Paper Wrap"]
     }
   ],
   "coupons": [
-    {
-      "code": "ECO10",
-      "discountPercent": 10,
-      "minAmount": 20,
-      "description": "10% off your eco-conscious order"
-    },
-    {
-      "code": "EARTHDAY",
-      "discountPercent": 15,
-      "minAmount": 40,
-      "description": "15% off orders above $40 for Earth Day"
-    },
-    {
-      "code": "MSMEFIRST",
-      "discountPercent": 20,
-      "minAmount": 50,
-      "description": "20% off for first-time MSME supporters"
-    }
+    { "code": "ECO10", "discountPercent": 10, "minAmount": 499, "description": "10% off your eco-conscious order (Min ₹499)" },
+    { "code": "SWACHH15", "discountPercent": 15, "minAmount": 799, "description": "15% off for Swachh Bharat mission supporters (Min ₹799)" },
+    { "code": "MSMEFIRST", "discountPercent": 20, "minAmount": 999, "description": "20% off for first-time MSME supporters (Min ₹999)" }
   ],
   "orders": [
     {
-      "id": "ECO-81406",
-      "date": "2026-09-07T09:06:34.769Z",
-      "customer": {
-        "name": "Meera Pillai",
-        "email": "meera@prakritinaturals.in",
-        "phone": "+91 94471 23456",
-        "address": "Coconut Grove Craft Unit, Ward 4",
-        "city": "Alappuzha",
-        "state": "Kerala",
-        "pincode": "688001"
-      },
-      "items": [
-        {
-          "productId": "prod-1",
-          "name": "Hand-Carved Coconut Shell Candle (Lavender & Cedar)",
-          "price": 18.5,
-          "quantity": 1,
-          "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
-          "carbonSavedKg": 3.2,
-          "plasticAvoided": 4,
-          "artisan": "Prakriti Naturals"
-        }
-      ],
-      "pricing": {
-        "subtotal": 18.5,
-        "discount": 0,
-        "ecoPackagingFee": 1.5,
-        "shipping": 4.99,
-        "total": 24.99
-      },
-      "packaging": "Biodegradable Plant-Starch Box & Jute Twine",
-      "shippingMethod": "Electric Vehicle Carbon-Neutral Cargo",
-      "paymentMethod": "UPI",
-      "status": "Order Placed",
-      "statusHistory": [
-        {
-          "status": "Order Placed",
-          "time": "2026-09-07T09:06:34.769Z"
-        }
-      ],
-      "ecoImpact": {
-        "totalCarbonSavedKg": 3.2,
-        "plasticAvoidedCount": 4,
-        "treesFunded": 1
-      },
-      "ecoPointsEarned": 25
-    },
-    {
-      "id": "ECO-78214",
-      "date": "2026-09-02T14:22:10.000Z",
+      "id": "ECO-IN-78214",
+      "date": "2026-10-02T14:22:10.000Z",
       "customer": {
         "name": "Ananya Sharma",
         "email": "ananya.sharma@example.com",
@@ -595,7 +404,7 @@
         {
           "productId": "prod-1",
           "name": "Hand-Carved Coconut Shell Candle (Lavender & Cedar)",
-          "price": 18.5,
+          "price": 399,
           "quantity": 2,
           "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
           "carbonSavedKg": 3.2,
@@ -605,7 +414,7 @@
         {
           "productId": "prod-2",
           "name": "Organic Bamboo Charcoal Dental Kit (4-Pack)",
-          "price": 14,
+          "price": 249,
           "quantity": 1,
           "image": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=800&q=80",
           "carbonSavedKg": 2.8,
@@ -614,43 +423,97 @@
         }
       ],
       "pricing": {
-        "subtotal": 51,
-        "discount": 5.1,
-        "ecoPackagingFee": 1.5,
+        "subtotal": 1047,
+        "discount": 104.7,
+        "ecoPackagingFee": 49,
         "shipping": 0,
-        "total": 47.4
+        "total": 991.3
       },
       "packaging": "Biodegradable Plant-Starch Box & Jute Twine",
       "shippingMethod": "Electric Vehicle Carbon-Neutral Delivery",
       "paymentMethod": "UPI / QR Simulation",
       "status": "Eco-Packed & Dispatched",
       "statusHistory": [
-        {
-          "status": "Order Placed",
-          "time": "2026-09-02T14:22:10.000Z"
-        },
-        {
-          "status": "Artisan Confirmed",
-          "time": "2026-09-02T15:10:00.000Z"
-        },
-        {
-          "status": "Eco-Packed & Dispatched",
-          "time": "2026-09-03T09:30:00.000Z"
-        }
+        { "status": "Order Placed", "time": "2026-10-02T14:22:10.000Z" },
+        { "status": "Artisan Confirmed", "time": "2026-10-02T15:10:00.000Z" },
+        { "status": "Eco-Packed & Dispatched", "time": "2026-10-03T09:30:00.000Z" }
       ],
       "ecoImpact": {
         "totalCarbonSavedKg": 9.2,
         "plasticAvoidedCount": 16,
         "treesFunded": 1
       },
-      "ecoPointsEarned": 47
+      "ecoPointsEarned": 99
+    }
+  ],
+  "pickups": [
+    {
+      "pickupId": "ECO-WASTE-2041",
+      "citizen": {
+        "name": "Pooja Hegde",
+        "email": "pooja.h@example.com",
+        "phone": "+91 98450 77123",
+        "address": "Flat 302, Palm Heights, Jayanagar",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pincode": "560041",
+        "societyName": "Palm Heights RWA"
+      },
+      "wasteCategory": "Agricultural & Coconut Shells",
+      "estimatedWeightKg": 12,
+      "pickupDate": "2026-10-12",
+      "timeSlot": "Morning (9 AM - 12 PM)",
+      "notes": "Cleaned and sun-dried coconut halves collected from apartment Navratri festivities.",
+      "qrCodeData": "ECOCART-BATCH-ECO-WASTE-2041-COCONUT-12KG",
+      "assignedCart": {
+        "cartId": "CART-02 (GPS Enabled)",
+        "operatorName": "Rameshappa M",
+        "operatorPhone": "+91 98440 22119"
+      },
+      "status": "Collected & QR Tagged",
+      "statusHistory": [
+        { "status": "Scheduled", "time": "2026-10-09T10:00:00.000Z" },
+        { "status": "Cart Dispatched", "time": "2026-10-10T09:30:00.000Z" },
+        { "status": "Collected & QR Tagged", "time": "2026-10-10T11:15:00.000Z" }
+      ],
+      "ecoPointsAwarded": 120
+    },
+    {
+      "pickupId": "ECO-WASTE-2042",
+      "citizen": {
+        "name": "Vikram Sethi",
+        "email": "vikram.s@example.com",
+        "phone": "+91 97112 33445",
+        "address": "B-12, Green Arch Enclave",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pincode": "560025",
+        "societyName": "Green Arch Welfare Society"
+      },
+      "wasteCategory": "Industrial Denim & Textiles",
+      "estimatedWeightKg": 25,
+      "pickupDate": "2026-10-14",
+      "timeSlot": "Afternoon (1 PM - 4 PM)",
+      "notes": "Post-consumer washed jeans and tailoring scrap cuttings.",
+      "qrCodeData": "ECOCART-BATCH-ECO-WASTE-2042-DENIM-25KG",
+      "assignedCart": {
+        "cartId": "CART-05 (GPS Enabled)",
+        "operatorName": "Mahesh Gowda",
+        "operatorPhone": "+91 98860 33441"
+      },
+      "status": "Scheduled",
+      "statusHistory": [
+        { "status": "Scheduled", "time": "2026-10-10T16:00:00.000Z" }
+      ],
+      "ecoPointsAwarded": 250
     }
   ],
   "impactStats": {
-    "totalOrders": 1285,
-    "totalTreesPlanted": 1543,
-    "totalCarbonSavedKg": 5893.6,
-    "totalPlasticAvoided": 28404,
-    "activeMsmeArtisans": 48
+    "totalOrders": 1420,
+    "totalTreesPlanted": 1680,
+    "totalCarbonSavedKg": 6420.5,
+    "totalPlasticAvoided": 31200,
+    "activeMsmeArtisans": 48,
+    "totalWasteCollectedKg": 4850
   }
 }

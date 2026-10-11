@@ -147,11 +147,11 @@ export default function ProductCard({ product, onSelectProduct }) {
           <div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-lg font-black text-slate-900 font-display">
-                ${product.price.toFixed(2)}
+                ₹{product.price.toLocaleString('en-IN')}
               </span>
               {product.originalPrice && product.originalPrice > product.price && (
                 <span className="text-xs text-slate-400 line-through font-mono">
-                  ${product.originalPrice.toFixed(2)}
+                  ₹{product.originalPrice.toLocaleString('en-IN')}
                 </span>
               )}
             </div>

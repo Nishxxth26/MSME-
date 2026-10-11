@@ -72,9 +72,9 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
       }
     } catch (err) {
       const fallbackCoupons = {
-        ECO10: { code: 'ECO10', discountPercent: 10, minAmount: 20, description: '10% off your eco-conscious order' },
-        EARTHDAY: { code: 'EARTHDAY', discountPercent: 15, minAmount: 40, description: '15% off orders above $40 for Earth Day' },
-        MSMEFIRST: { code: 'MSMEFIRST', discountPercent: 20, minAmount: 50, description: '20% off for first-time MSME supporters' }
+        ECO10: { code: 'ECO10', discountPercent: 10, minAmount: 499, description: '10% off your eco-conscious order' },
+        SWACHH15: { code: 'SWACHH15', discountPercent: 15, minAmount: 799, description: '15% off orders above ₹799 for Swachh Bharat' },
+        MSMEFIRST: { code: 'MSMEFIRST', discountPercent: 20, minAmount: 999, description: '20% off for first-time MSME supporters' }
       };
       const found = fallbackCoupons[code];
       if (found && subtotal >= found.minAmount) {
@@ -82,9 +82,9 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
         const c = { ...found, discountAmount };
         setAppliedCoupon(c);
         setCouponInput('');
-        showToast(`Promo code ${c.code} applied! Saved $${discountAmount.toFixed(2)}`, 'success');
+        showToast(`Promo code ${c.code} applied! Saved ₹${discountAmount.toFixed(0)}`, 'success');
       } else if (found && subtotal < found.minAmount) {
-        setCouponError(`Min order of $${found.minAmount} required for ${code}`);
+        setCouponError(`Min order of ₹${found.minAmount} required for ${code}`);
       } else {
         setCouponError('Invalid promo code');
       }
@@ -134,7 +134,7 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
               <span className="flex items-center gap-1.5 text-eco-900">
                 <TreePine className="w-4 h-4 text-eco-600" />
                 {amountNeededForFreeShipping > 0 ? (
-                  <>Add <strong className="text-eco-800">${amountNeededForFreeShipping.toFixed(2)}</strong> for Free Carbon-Neutral Shipping & 1 Tree Planted!</>
+                  <>Add <strong className="text-eco-800">₹{amountNeededForFreeShipping.toFixed(0)}</strong> for Free Carbon-Neutral Shipping & 1 Tree Planted!</>
                 ) : (
                   <span className="text-emerald-700 font-bold flex items-center gap-1">
                     <Sparkles className="w-3.5 h-3.5" /> Unlocked Free Shipping & 1 Tree Planted!
@@ -206,10 +206,10 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
                     <div className="flex items-center justify-between mt-2 pt-1 border-t border-slate-50">
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-bold text-slate-900 font-display">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                         </span>
                         <span className="text-[10px] text-slate-400 font-mono">
-                          (${item.price.toFixed(2)} ea)
+                          (₹{item.price.toLocaleString('en-IN')} ea)
                         </span>
                       </div>
 
@@ -266,7 +266,7 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
                   >
                     <div className="font-semibold flex items-center justify-between">
                       <span>Plant-Starch Box</span>
-                      <span className="text-eco-700 font-mono">+$1.50</span>
+                      <span className="text-eco-700 font-mono">+₹49</span>
                     </div>
                     <p className="text-[10px] text-slate-500 mt-1">100% home compostable box with jute twine.</p>
                   </button>
@@ -319,7 +319,7 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
                     <div className="flex gap-2">
                       <input
                         type="text"
-                        placeholder="e.g. ECO10 or EARTHDAY"
+                        placeholder="e.g. ECO10 or SWACHH15"
                         value={couponInput}
                         onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
                         className="flex-1 px-3 py-2 text-xs uppercase font-mono border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-eco-500"
@@ -348,10 +348,17 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
                       </button>
                       <button
                         type="button"
-                        onClick={() => handleApplyCoupon('EARTHDAY')}
+                        onClick={() => handleApplyCoupon('SWACHH15')}
                         className="text-[10px] font-mono font-semibold px-2 py-0.5 bg-slate-100 hover:bg-eco-100 text-slate-700 hover:text-eco-800 rounded border border-slate-200 transition-colors"
                       >
-                        EARTHDAY
+                        SWACHH15
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleApplyCoupon('MSMEFIRST')}
+                        className="text-[10px] font-mono font-semibold px-2 py-0.5 bg-slate-100 hover:bg-eco-100 text-slate-700 hover:text-eco-800 rounded border border-slate-200 transition-colors"
+                      >
+                        MSMEFIRST
                       </button>
                     </div>
                   </div>
@@ -387,18 +394,18 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
               <div className="space-y-1.5 text-xs text-slate-600">
                 <div className="flex justify-between">
                   <span>Cart Subtotal</span>
-                  <span className="font-mono font-medium">${subtotal.toFixed(2)}</span>
+                  <span className="font-mono font-medium">₹{subtotal.toLocaleString('en-IN')}</span>
                 </div>
                 {couponDiscount > 0 && (
                   <div className="flex justify-between text-emerald-700 font-medium">
                     <span>Eco Discount ({appliedCoupon?.code})</span>
-                    <span className="font-mono">-${couponDiscount.toFixed(2)}</span>
+                    <span className="font-mono">-₹{couponDiscount.toLocaleString('en-IN')}</span>
                   </div>
                 )}
                 {packagingFee > 0 && (
                   <div className="flex justify-between">
                     <span>Biodegradable Packaging</span>
-                    <span className="font-mono">${packagingFee.toFixed(2)}</span>
+                    <span className="font-mono">₹{packagingFee.toLocaleString('en-IN')}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
@@ -407,14 +414,14 @@ export default function CartDrawer({ onCheckout, onViewFullCart }) {
                     {shippingFee === 0 ? (
                       <strong className="text-emerald-700">FREE</strong>
                     ) : (
-                      `$${shippingFee.toFixed(2)}`
+                      `₹${shippingFee.toLocaleString('en-IN')}`
                     )}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm font-bold text-slate-900 pt-2 border-t border-slate-200">
                   <span>Grand Total</span>
                   <span className="font-mono text-base font-black text-eco-800">
-                    ${total.toFixed(2)}
+                    ₹{total.toLocaleString('en-IN')}
                   </span>
                 </div>
               </div>

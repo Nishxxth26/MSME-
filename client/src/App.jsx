@@ -17,6 +17,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import OrderSuccessPage from './pages/OrderSuccessPage';
 import SellerDashboard from './pages/SellerDashboard';
 import ImpactDashboard from './pages/ImpactDashboard';
+import WastePickupPage from './pages/WastePickupPage';
 
 function MainLayout() {
   const [activePage, setActivePage] = useState('home');
@@ -100,6 +101,12 @@ function MainLayout() {
 
         {activePage === 'seller' && (
           <SellerDashboard 
+            onNavigate={handleNavigate}
+          />
+        )}
+
+        {activePage === 'pickup' && (
+          <WastePickupPage 
             onNavigate={handleNavigate}
           />
         )}

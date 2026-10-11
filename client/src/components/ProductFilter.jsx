@@ -128,21 +128,21 @@ export default function ProductFilter() {
         <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-2">
           <span className="uppercase tracking-wider">Max Price</span>
           <span className="text-eco-800 font-mono text-sm font-extrabold">
-            ${priceRange[1]}
+            ₹{priceRange[1]}
           </span>
         </div>
         <input
           type="range"
-          min="10"
-          max="50"
-          step="5"
-          value={priceRange[1]}
+          min="200"
+          max="1500"
+          step="50"
+          value={priceRange[1] > 1500 ? 1500 : (priceRange[1] < 200 ? 200 : priceRange[1])}
           onChange={(e) => setPriceRange([0, parseInt(e.target.value, 10)])}
           className="w-full accent-eco-600 cursor-pointer h-1.5 bg-slate-200 rounded-lg appearance-none"
         />
         <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-mono">
-          <span>$10</span>
-          <span>$50</span>
+          <span>₹200</span>
+          <span>₹1,500</span>
         </div>
       </div>
 

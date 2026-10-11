@@ -18,7 +18,7 @@ export const ProductProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedEcoScore, setSelectedEcoScore] = useState('all');
   const [selectedMsmeType, setSelectedMsmeType] = useState('all');
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [priceRange, setPriceRange] = useState([0, 1500]);
   const [sortBy, setSortBy] = useState('default');
 
   // Wishlist state
@@ -97,7 +97,7 @@ export const ProductProvider = ({ children }) => {
       );
     }
 
-    if (priceRange[1] < 100) {
+    if (priceRange[1] < 1500) {
       filtered = filtered.filter(p => p.price <= priceRange[1]);
     }
 
@@ -123,7 +123,7 @@ export const ProductProvider = ({ children }) => {
       if (searchQuery) params.append('search', searchQuery);
       if (selectedEcoScore && selectedEcoScore !== 'all') params.append('ecoScore', selectedEcoScore);
       if (selectedMsmeType && selectedMsmeType !== 'all') params.append('msmeType', selectedMsmeType);
-      if (priceRange[1] < 100) params.append('maxPrice', priceRange[1]);
+      if (priceRange[1] < 1500) params.append('maxPrice', priceRange[1]);
       if (sortBy && sortBy !== 'default') params.append('sort', sortBy);
 
       const res = await fetch(`/api/products?${params.toString()}`);

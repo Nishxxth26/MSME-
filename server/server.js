@@ -1,14 +1,19 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const { connectDB } = require('./config/db');
 
 const productsRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
 const ordersRouter = require('./routes/orders');
 const impactRouter = require('./routes/impact');
+const pickupsRouter = require('./routes/pickups');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB with auto-failover
+connectDB();
 
 // Middleware
 app.use(cors());
@@ -25,13 +30,16 @@ app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/impact', impactRouter);
+app.use('/api/pickups', pickupsRouter);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
+  const { isConnected } = require('./config/db');
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    service: 'EcoCart MSME API'
+    service: 'EcoCart MSME API',
+    database: isConnected() ? 'MongoDB Connected' : 'Resilient JSON Store Active'
   });
 });
 

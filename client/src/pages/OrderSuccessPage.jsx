@@ -180,7 +180,7 @@ export default function OrderSuccessPage({ order, onNavigate }) {
             <p className="text-slate-600 font-semibold">{order.packaging}</p>
             <p className="text-slate-500">{order.shippingMethod}</p>
             <p className="text-slate-500">Payment: <strong className="text-slate-800">{order.paymentMethod}</strong></p>
-            <p className="text-eco-700 font-bold font-mono">Total Paid: ${order.pricing.total.toFixed(2)}</p>
+            <p className="text-eco-700 font-bold font-mono">Total Paid: ₹{order.pricing.total.toLocaleString('en-IN')}</p>
           </div>
         </div>
       </div>

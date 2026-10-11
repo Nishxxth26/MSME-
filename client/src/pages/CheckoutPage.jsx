@@ -425,7 +425,7 @@ export default function CheckoutPage({ onBack, onOrderComplete }) {
                       <div className="w-full h-full border-2 border-dashed border-eco-500 rounded-lg flex flex-col items-center justify-center p-2">
                         <QrCode className="w-12 h-12 text-eco-700 mb-1" />
                         <span className="text-[10px] font-mono text-slate-600 font-bold">SCAN & PAY</span>
-                        <span className="text-[9px] text-eco-700 font-semibold">${total.toFixed(2)}</span>
+                        <span className="text-[9px] text-eco-700 font-semibold">₹{total.toLocaleString('en-IN')}</span>
                       </div>
                     </div>
                     <p className="text-xs text-slate-600">
@@ -472,10 +472,10 @@ export default function CheckoutPage({ onBack, onOrderComplete }) {
                   <div className="text-xs space-y-2 py-2">
                     <div className="flex items-center justify-between font-semibold">
                       <span>EcoPoints Balance:</span>
-                      <span className="font-mono text-amber-700 font-bold">{user.ecoPoints} points</span>
+                      <span className="font-mono text-amber-700 font-bold">{user.ecoPoints} points (₹{((user.ecoPoints || 0) * 0.50).toFixed(0)})</span>
                     </div>
                     <p className="text-slate-500 text-[11px]">
-                      Your points contribute toward sustainability funding. Remaining balance charged to default card.
+                      Your points contribute toward sustainability funding. Remaining balance charged to default mode.
                     </p>
                   </div>
                 )}
@@ -484,7 +484,7 @@ export default function CheckoutPage({ onBack, onOrderComplete }) {
                   <div className="text-xs py-2 space-y-1">
                     <p className="font-semibold text-slate-800">Cash / UPI on Delivery</p>
                     <p className="text-slate-500 text-[11px]">
-                      Pay the EV delivery partner when you receive your compostable package.
+                      Pay the EV delivery partner via Cash or UPI when you receive your compostable package.
                     </p>
                   </div>
                 )}
@@ -509,7 +509,7 @@ export default function CheckoutPage({ onBack, onOrderComplete }) {
                     <span>Confirming Eco-Order...</span>
                   ) : (
                     <>
-                      <span>Place Sustainable Order (${total.toFixed(2)})</span>
+                      <span>Place Sustainable Order (₹{total.toLocaleString('en-IN')})</span>
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}
@@ -534,11 +534,11 @@ export default function CheckoutPage({ onBack, onOrderComplete }) {
                     <img src={it.image} alt={it.name} className="w-11 h-11 rounded-lg object-cover flex-shrink-0" />
                     <div className="truncate">
                       <p className="font-semibold text-slate-800 truncate">{it.name}</p>
-                      <p className="text-[10px] text-slate-400 font-mono">Qty: {it.quantity} × ${it.price.toFixed(2)}</p>
+                      <p className="text-[10px] text-slate-400 font-mono">Qty: {it.quantity} × ₹{it.price.toLocaleString('en-IN')}</p>
                     </div>
                   </div>
                   <span className="font-bold font-mono text-slate-900 flex-shrink-0">
-                    ${(it.price * it.quantity).toFixed(2)}
+                    ₹{(it.price * it.quantity).toLocaleString('en-IN')}
                   </span>
                 </div>
               ))}
@@ -548,36 +548,36 @@ export default function CheckoutPage({ onBack, onOrderComplete }) {
             <div className="space-y-2 text-xs text-slate-600 pt-3 border-t border-slate-100">
               <div className="flex justify-between">
                 <span>Subtotal</span>
-                <span className="font-mono">${subtotal.toFixed(2)}</span>
+                <span className="font-mono">₹{subtotal.toLocaleString('en-IN')}</span>
               </div>
               {couponDiscount > 0 && (
                 <div className="flex justify-between text-emerald-700">
                   <span>Eco Discount</span>
-                  <span className="font-mono">-${couponDiscount.toFixed(2)}</span>
+                  <span className="font-mono">-₹{couponDiscount.toLocaleString('en-IN')}</span>
                 </div>
               )}
               {pointsDiscount > 0 && (
                 <div className="flex justify-between text-amber-700">
                   <span>EcoPoints Discount</span>
-                  <span className="font-mono">-${pointsDiscount.toFixed(2)}</span>
+                  <span className="font-mono">-₹{pointsDiscount.toLocaleString('en-IN')}</span>
                 </div>
               )}
               {packagingFee > 0 && (
                 <div className="flex justify-between">
                   <span>Biodegradable Packaging</span>
-                  <span className="font-mono">${packagingFee.toFixed(2)}</span>
+                  <span className="font-mono">₹{packagingFee.toLocaleString('en-IN')}</span>
                 </div>
               )}
               <div className="flex justify-between">
                 <span>Carbon-Neutral Delivery</span>
                 <span className="font-mono">
-                  {shippingFee === 0 ? <strong className="text-emerald-700">FREE</strong> : `$${shippingFee.toFixed(2)}`}
+                  {shippingFee === 0 ? <strong className="text-emerald-700">FREE</strong> : `₹${shippingFee.toLocaleString('en-IN')}`}
                 </span>
               </div>
               <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline font-bold text-slate-900">
                 <span>Total Amount</span>
                 <span className="text-lg font-black font-mono text-eco-800">
-                  ${total.toFixed(2)}
+                  ₹{total.toLocaleString('en-IN')}
                 </span>
               </div>
             </div>
